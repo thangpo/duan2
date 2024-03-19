@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./admin-css/admin.css">
+     
+
+    <title>Admin</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+               <img src="images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name"></span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                    <i class="uil uil-dashboard"></i>
+                    <span class="link-name">Bảng tin</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-box"></i>
+                    <span class="link-name">Quản lý sản phẩm</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-folder"></i>
+                    <span class="link-name">Quản lý danh mục</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-comment"></i>
+                    <span class="link-name">Quản lý bình luận</span>
+                    <a href="#">Quản Lý</a>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-shopping-cart"></i>
+                    <span class="link-name">Quản lý đơn hàng</span>
+                    <a href="#">Quản Lý</a>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-user"></i>
+                    <span class="link-name">Quản lý tài khoản</span>
+                </a></li>
+            </ul>
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Đăng xuất</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <!--<img src="images/profile.jpg" alt="">-->
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-book-open"></i>
+                    <span class="text">Bảng tin</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-thumbs-up"></i>
+                        <span class="text">Tổng lượt thích</span>
+                        <span class="number">50,120</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="uil uil-comments"></i>
+                        <span class="text">Bình luận</span>
+                        <span class="number">20,120</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="uil uil-share"></i>
+                        <span class="text">Tổng truy cập</span>
+                        <span class="number">10,120</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="activity">
+                <h1>Bình luận</h1>
+                <ul id="comment-list">
+                </ul>
+            </div>
+        
+            <div class="comment-form">
+                <h1>Thêm Bình Luận</h1>
+                <div class="check">
+                <form id="commentForm">
+                    <label for="name">Tên:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="comment">Nội dung:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+        
+                    <button type="submit">Bình luận</button>
+                </form>
+                    </div>
+            </div>
+            <div class="check">
+            <script>
+                let comments = [
+                    { id: 1, name: 'Đức Handsome', comment: 'Đây là 1 quyển sách tuyệt vời!', date: '2023-11-22' },
+                    { id: 2, name: 'Tài', comment: 'Đây là 1 quyển sách tuyệt vời!', date: '2023-11-22' },
+                    { id: 3, name: 'Đạt', comment: 'Đây là 1 quyển sách tuyệt vời!', date: '2023-11-22' },
+                ];
+                function renderComments() {
+                    const commentList = document.getElementById('comment-list');
+                    commentList.innerHTML = '';
+        
+                    comments.forEach(comment => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <strong>${comment.name}</strong> (${comment.date}): ${comment.comment}
+                            <button onclick="editComment(${comment.id})">Edit</button>
+                            <button onclick="deleteComment(${comment.id})">Delete</button>
+                            <button onclick="replyToComment(${comment.id})">Reply</button>
+                        `;
+                        commentList.appendChild(li);
+                    });
+                }
+                document.getElementById('commentForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+        
+                    const name = document.getElementById('name').value;
+                    const commentText = document.getElementById('comment').value;
+        
+                    const newComment = {
+                        id: comments.length + 1,
+                        name: name,
+                        comment: commentText,
+                        date: new Date().toISOString().split('T')[0],
+                    };
+        
+                    comments.push(newComment);
+                    renderComments();
+                });
+                function deleteComment(commentId) {
+                    comments = comments.filter(comment => comment.id !== commentId);
+                    renderComments();
+                }
+                function editComment(commentId) {
+                    const index = comments.findIndex(comment => comment.id === commentId);
+                    if (index !== -1) {
+                        const updatedCommentText = prompt('Edit your comment:', comments[index].comment);
+                        if (updatedCommentText !== null) {
+                            comments[index].comment = updatedCommentText;
+                            renderComments();
+                        }
+                    }
+                }
+                function replyToComment(commentId) {
+                    const originalComment = comments.find(comment => comment.id === commentId);
+                    const replyText = prompt('Reply to ' + originalComment.name + ':');
+                    
+                    if (replyText !== null) {
+                        const replyComment = {
+                            id: comments.length + 1,
+                            name: 'Admin ' + " đã trả lời " + originalComment.name , 
+                            comment: replyText,
+                            date: new Date().toISOString().split('T')[0],
+                        };
+        
+                        comments.push(replyComment);
+                        renderComments();
+                    }
+                }
+                renderComments();
+            </script>
+            </div>
+        </div>
+    </section>
+
+    <script src="./admin-js/admin.js"></script>
+</body>
+</html>

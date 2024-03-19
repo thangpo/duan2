@@ -1,0 +1,108 @@
+
+
+
+
+.main__modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn linear 0.3s;
+    z-index: 2;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+}
+
+.modal__body{
+    z-index: 10001;
+}
+
+.sale-off{
+    width: 500px;
+    border-radius: 5px;
+    background: #efefef;
+    /*background: url(../images/bg_sale_off.jpg);*/
+    background: linear-gradient(#fff,#fafafa);
+    background-size: cover;
+    overflow: hidden;
+    padding: 3rem;
+    position: relative;
+}
+.sale-off__container{
+    padding-bottom: 22px;
+    text-align: center;
+}
+
+/* .sale-off__heading{
+    color: var(--text-color);
+    line-height: 3rem;
+    word-spacing: 0.8rem;
+    margin-top: 1.4rem;
+    font-family: 'Paytone One', sans-serif;
+} */
+
+.sale-off__sp{
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.sale-off__name{
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+
+.sale-off__link{
+    text-decoration: none;
+}
+
+.sale-off__btn{
+    margin-top: 0.5rem;
+    padding: 0.6rem 2rem;
+    outline: none;
+    border: none;
+    box-shadow: inset 0 2rem 2.5rem 0.5rem var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.6rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sale-off__btn:hover{
+    background: var(--primary-color);
+}
+
+.sale-off__close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.sale-off__close-icon{
+    fill: #ccc;
+}
+
+

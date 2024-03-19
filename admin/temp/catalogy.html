@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Danh Mục</title>
+    <link rel="stylesheet" href="./admin-css/catalogy.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Admin</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+               <img src="/admin-html-css/images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name">Admin</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                    <i class="uil uil-dashboard"></i>
+                    <span class="link-name">Bảng tin</span>
+                </a></li>
+                <li><a href="/admin-html-css/Sanpham/Sanpham.html">
+                    <i class="uil uil-box"></i>
+                    <span class="link-name">Sản phẩm</span>
+                </a></li>
+                <li><a href="Danhmuc.html">
+                    <i class="uil uil-folder"></i>
+                    <span class="link-name">Danh mục</span>
+                </a></li>
+                <li><a href="/admin-html-css/binhluan.html">
+                    <i class="uil uil-comment"></i>
+                    <span class="link-name">Bình luận</span>
+                </a></li>
+                <li><a href="/admin-html-css/donhang.html">
+                    <i class="uil uil-shopping-cart"></i>
+                    <span class="link-name">Đơn hàng</span>
+                </a></li>
+                <li><a href="/admin-html-css/quanly-account/account/quanly.html">
+                    <i class="uil uil-user"></i>
+                    <span class="link-name">Tài khoản</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Đăng xuất</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <!--<img src="images/profile.jpg" alt="">-->
+        </div>
+    <div class="admin-section">
+        <h2>Quản lý Danh Mục</h2>
+        <table id="categoryTable">
+            <thead>
+                <tr>
+                    <th>Danh mục</th>
+                    <th>Thể loại</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu sẽ được cập nhật tại đây -->
+            </tbody>
+        </table>
+        <div class="category-form">
+            <input type="text" id="categoryName" placeholder="Nhập tên danh mục">
+            <input type="text" id="genre" placeholder="Nhập thể loại">
+            <button onclick="addCategory()">Thêm</button>
+        </div>
+    </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./admin-js/catalogy.js"></script>
+</body>
+</html>
